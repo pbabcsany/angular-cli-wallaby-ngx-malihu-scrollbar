@@ -1,10 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MalihuScrollbarModule.forRoot()
+      ],
       declarations: [
         AppComponent
       ],
