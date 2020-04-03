@@ -29,13 +29,17 @@ module.exports = function (wallaby) {
     resolve: {
       modules: [
         path.join(wallaby.projectCacheDir, 'src/app'),
-        path.join(wallaby.projectCacheDir, 'src')
+        path.join(wallaby.projectCacheDir, 'src'),
+        path.join(wallaby.projectCacheDir, 'node_modules')
       ]
     }
   });
 
   return {
     files: [
+      {pattern: 'node_modules/jquery/dist/jquery.js', instrument: false},
+      {pattern: 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js', instrument: false},
+      {pattern: 'node_modules/ngx-malihu-scrollbar/**/*.ts', load: false},
       {pattern: 'src/**/*.ts', load: false},
       {pattern: 'src/**/*.d.ts', ignore: true},
       {pattern: 'src/**/*.css', load: false},
